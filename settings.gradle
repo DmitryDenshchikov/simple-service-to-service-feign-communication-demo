@@ -1,1 +1,6 @@
 rootProject.name = 'simple-service-to-service-feign-communication-demo'
+
+include 'greeting-service'
+include 'greeting-service-api-client'
+include 'user-service'
+include 'greeting-service-api-model'
