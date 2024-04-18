@@ -7,7 +7,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.spring' version '1.9.23'
 }
 
-group = 'com.example'
+group = 'denshchikov.dmitry'
 version = '0.0.1-SNAPSHOT'
 
 java {
@@ -18,20 +18,10 @@ repositories {
     mavenCentral()
 }
 
-ext {
-    set('springCloudVersion', "2023.0.1")
-}
-
 dependencies {
     implementation 'org.jetbrains.kotlin:kotlin-reflect'
-    api 'org.springframework.cloud:spring-cloud-starter-openfeign'
+    api 'org.springframework.cloud:spring-cloud-starter-openfeign:4.1.1'
     api project(':greeting-service-api-model')
-}
-
-dependencyManagement {
-    imports {
-        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-    }
 }
 
 tasks.withType(KotlinCompile) {
@@ -39,8 +29,4 @@ tasks.withType(KotlinCompile) {
         freeCompilerArgs += '-Xjsr305=strict'
         jvmTarget = '17'
     }
-}
-
-tasks.named('test') {
-    useJUnitPlatform()
 }

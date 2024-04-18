@@ -13,7 +13,7 @@ import java.util.UUID
 @RequestMapping("/greetings")
 class GreetingController {
 
-    val userStorage = HashMap<UUID, String>()
+    val userStorage = mutableMapOf<UUID, String>()
 
     @PostMapping
     fun createGreeting(@RequestBody req: UserDto): UUID {
